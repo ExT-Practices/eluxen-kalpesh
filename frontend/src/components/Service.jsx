@@ -1,33 +1,14 @@
-import React from 'react';
-
-const services = [
-    {
-        id: "01",
-        title: "Exterior Detailing",
-        description: "Shine, protect, restore paint.",
-        image: "https://html.designingmedia.com/eluxen/assets/images/services-img1.jpg",
-    },
-    {
-        id: "02",
-        title: "Interior Detailing",
-        description: "Deep Clean, Fresh feel",
-        image: "https://html.designingmedia.com/eluxen/assets/images/services-img2.jpg",
-    },
-    {
-        id: "03",
-        title: "Engine Bay Cleaning",
-        description: "Long-lasting, high-glass protection.",
-        image: "https://html.designingmedia.com/eluxen/assets/images/services-img3.jpg",
-    },
-    {
-        id: "04",
-        title: "Paint Correction",
-        description: "Eliminate swirls, restore clarity.",
-        image: "https://html.designingmedia.com/eluxen/assets/images/services-img4.jpg",
-    },
-];
+import React, { useEffect, useState } from 'react';
 
 export default function ServicesSection() {
+    const [services, setServices] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/api/services')
+            .then(res => res.json())
+            .then(data => setServices(data))
+            .catch(err => console.error('Error fetching services:', err));
+    }, []);
     return (
         <section className="bg-black text-white py-20 px-6">
             <div className="max-w-7xl mx-auto">

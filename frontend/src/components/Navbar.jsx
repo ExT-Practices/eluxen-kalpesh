@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -23,13 +24,24 @@ export default function Navbar() {
 
                     {/* CENTER - BLURRED NAVIGATION BOX */}
                     <nav className="hidden lg:flex items-center gap-6 text-white font-medium backdrop-blur-md bg-black/40 rounded-2xl px-8 py-3 border border-white/10">
-                        <a href="/" className="px-5 py-2 rounded-lg bg-[#3b66f5] transition-colors">
+                        <NavLink 
+                            to="/" 
+                            end
+                            className={({ isActive }) => 
+                                `px-5 py-2 rounded-lg transition-all duration-300 ${isActive ? 'bg-[#3b66f5]' : 'hover:text-blue-400'}`
+                            }
+                        >
                             Home
-                        </a>
+                        </NavLink>
 
-                        <a href="/about" className="hover:text-blue-400 transition-colors px-2">
+                        <NavLink 
+                            to="/about" 
+                            className={({ isActive }) => 
+                                `px-5 py-2 rounded-lg transition-all duration-300 ${isActive ? 'bg-[#3b66f5]' : 'hover:text-blue-400'}`
+                            }
+                        >
                             About
-                        </a>
+                        </NavLink>
 
                         <a href="/services" className="hover:text-blue-400 transition-colors px-2">
                             Services
@@ -45,8 +57,8 @@ export default function Navbar() {
                             </button>
                             {pagesOpen && (
                                 <div className="absolute top-full left-0 mt-4 w-40 bg-white text-black rounded-lg shadow-xl overflow-hidden">
-                                    <a href="/about" className="block px-4 py-2 hover:bg-gray-100">About</a>
-                                    <a href="/contact" className="block px-4 py-2 hover:bg-gray-100">Contact</a>
+                                    <Link to="/about" className="block px-4 py-2 hover:bg-gray-100">About</Link>
+                                    <Link to="/contact" className="block px-4 py-2 hover:bg-gray-100">Contact</Link>
                                 </div>
                             )}
                         </div>
@@ -73,8 +85,8 @@ export default function Navbar() {
 
                     {/* RIGHT SIDE - ACTION & CONTACT (No Blur) */}
                     <div className="hidden lg:flex items-center gap-5">
-                        <a
-                            href="/contact"
+                        <Link
+                            to="/contact"
                             className="group flex items-center gap-4 bg-[#ffcc4d] text-black pl-6 pr-2 py-2 rounded-xl font-bold hover:bg-[#ffd670] transition-all"
                         >
                             Contact us
@@ -90,7 +102,7 @@ export default function Navbar() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H8M17 7V16" />
                                 </svg>
                             </span>
-                        </a>
+                        </Link>
 
                         {/* PHONE SECTION */}
                         <div className="flex items-center gap-3 text-white pl-2">
@@ -118,10 +130,39 @@ export default function Navbar() {
                 {/* MOBILE MENU OVERLAY */}
                 {menuOpen && (
                     <div className="lg:hidden mt-4 bg-black/95 backdrop-blur-xl rounded-2xl p-6 space-y-4 text-white border border-white/10">
-                        <a href="/" className="block py-2">Home</a>
-                        <a href="/about" className="block py-2">About</a>
-                        <a href="/services" className="block py-2">Services</a>
-                        <a href="/pricing" className="block py-2">Pricing</a>
+                        <NavLink 
+                            to="/" 
+                            end
+                            className={({ isActive }) => 
+                                `block py-2 ${isActive ? 'text-[#ffcc4d] font-bold' : ''}`
+                            }
+                        >
+                            Home
+                        </NavLink>
+                        <NavLink 
+                            to="/about" 
+                            className={({ isActive }) => 
+                                `block py-2 ${isActive ? 'text-[#ffcc4d] font-bold' : ''}`
+                            }
+                        >
+                            About
+                        </NavLink>
+                        <NavLink 
+                            to="/services" 
+                            className={({ isActive }) => 
+                                `block py-2 ${isActive ? 'text-[#ffcc4d] font-bold' : ''}`
+                            }
+                        >
+                            Services
+                        </NavLink>
+                        <NavLink 
+                            to="/pricing" 
+                            className={({ isActive }) => 
+                                `block py-2 ${isActive ? 'text-[#ffcc4d] font-bold' : ''}`
+                            }
+                        >
+                            Pricing
+                        </NavLink>
                         <div className="pt-4 border-t border-white/10">
                             <a href="/contact" className="block bg-[#ffcc4d] text-black px-4 py-3 rounded-xl text-center font-bold">
                                 Contact Us

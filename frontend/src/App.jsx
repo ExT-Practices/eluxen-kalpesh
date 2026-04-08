@@ -1,19 +1,13 @@
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Service from "./components/Service";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   return (
-    <>
-      <Header />
-      <main className="relative">
-        <Navbar />
-        <Hero />
-        <Service />
-      </main>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<AboutPage />} />
+    </Routes>
   );
 }
-
 export default App;
