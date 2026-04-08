@@ -1,32 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Quote, Star, ArrowLeft, ArrowRight } from "lucide-react";
 
-const testimonials = [
-  {
-    id: 1,
-    quote: "I couldn't believe the transformation. I brought in my SUV after a long road trip with kids, pets, and plenty of wear and tear. When I picked it up, it looked and smelled like it just came off the showroom floor. Every surface was spotless, the paint had an incredible shine, and even the smallest crevices were cleaned to perfection.",
-    name: "Alina James",
-    role: "Happy Client",
-    image: "https://html.designingmedia.com/eluxen/assets/images/review-person.png"
-  },
-  {
-    id: 2,
-    quote: "Absolutely phenomenal service! The team was highly professional and treated my car as if it was their own. The interior feels brand new, and the exterior detail is flawless. I highly recommend them to anyone who wants top-tier care for their vehicle in record time.",
-    name: "Michael Smith",
-    role: "Regular Customer",
-    image: "https://randomuser.me/api/portraits/men/32.jpg"
-  },
-  {
-    id: 3,
-    quote: "Outstanding experience start to finish. I've used several auto detailing services before, but none compare to the attention to detail provided here. The ceramic coating they applied looks amazing. My car has never looked this good since I bought it.",
-    name: "Sarah Jenkins",
-    role: "Car Enthusiast",
-    image: "https://randomuser.me/api/portraits/women/44.jpg"
-  }
-];
-
 export default function Testimonials() {
+  const [testimonials, setTestimonials] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/testimonials')
+      .then(res => res.json())
+      .then(data => setTestimonials(data))
+      .catch(err => console.error('Error fetching testimonials:', err));
+  }, []);
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
