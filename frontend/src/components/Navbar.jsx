@@ -43,9 +43,14 @@ export default function Navbar() {
                             About
                         </NavLink>
 
-                        <a href="/services" className="hover:text-blue-400 transition-colors px-2">
+                        <NavLink 
+                            to="/services" 
+                            className={({ isActive }) => 
+                                `px-5 py-2 rounded-lg transition-all duration-300 ${isActive ? 'bg-[#3b66f5]' : 'hover:text-blue-400'}`
+                            }
+                        >
                             Services
-                        </a>
+                        </NavLink>
 
                         {/* Pages Dropdown */}
                         <div className="relative group px-2">
