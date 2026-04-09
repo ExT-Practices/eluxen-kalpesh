@@ -16,7 +16,7 @@ export default function Home() {
             <main className="relative">
                 <Navbar />
                 <Hero />
-                <Service />
+                <Service limit={4} />
                 <AboutUs />
                 <Pricing />
                 <Testimonials />
