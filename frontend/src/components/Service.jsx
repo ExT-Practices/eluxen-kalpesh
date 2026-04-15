@@ -1,41 +1,46 @@
 import React, { useEffect, useState } from 'react';
 
-export default function ServicesSection() {
+export default function ServicesSection({ limit }) {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/services')
+        fetch('http://localhost:5050/api/services')
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => {
+                if (limit) {
+                    setServices(data.slice(0, limit));
+                } else {
+                    setServices(data);
+                }
+            })
             .catch(err => console.error('Error fetching services:', err));
     }, []);
     return (
-        <section className="bg-black text-white py-20 px-6">
+        <section className="bg-black text-white py-20 px-6 animate-fade-up">
             <div className="max-w-7xl mx-auto">
 
                 {/* HEADER SECTION */}
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
-                    <div className="lg:w-1/2">
-                        <span className="text-[#ffcc4d] font-semibold tracking-wider uppercase text-sm mb-4 block">
+                    <div className="lg:w-1/2 text-center lg:text-left">
+                        <span className="text-[#ffcc4d] font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 block">
                             Best Services
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                            Our Best Car <br /> Detailing Services.
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1]">
+                            Our Best Car <br className="hidden md:block" /> Detailing Services.
                         </h2>
                     </div>
 
-                    <div className="lg:w-1/2 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                        <p className="text-gray-400 max-w-md leading-relaxed">
+                    <div className="lg:w-1/2 flex flex-col md:flex-row md:items-center justify-between gap-8">
+                        <p className="text-gray-400 max-w-md leading-relaxed text-sm md:text-base text-center lg:text-left mx-auto lg:mx-0">
                             Explore our complete range of detailing solutions, designed to restore,
-                            protect, and enhance your vehicle’s finish. Experience unmatched quality,
-                            care, and attention in every detail.
+                            protect, and enhance your vehicle’s finish. Experience unmatched quality.
                         </p>
                         <a
-                            href="/pricing"
-                            className="group flex items-center gap-4 bg-[#ffcc4d] text-black pl-6 pr-2 py-2 rounded-xl font-bold hover:bg-[#ffd670] transition-all self-start md:self-auto shrink-0"
+                            href="/services"
+                            className="group flex items-center gap-4 bg-[#ffcc4d] text-black pl-8 pr-2 py-2 rounded-2xl font-bold hover:bg-[#ffd670] transition-all self-center lg:self-auto shrink-0 shadow-lg shadow-yellow-400/10"
                         >
-                            View all
-                            <span className="bg-black p-2 rounded-lg">
+                            <span className="uppercase tracking-wider text-sm">View all</span>
+                            <span className="bg-black p-3 rounded-xl transition-transform group-hover:rotate-45">
                                 <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M7 17L17 7M17 7H8M17 7V16" />
                                 </svg>
@@ -45,7 +50,7 @@ export default function ServicesSection() {
                 </div>
 
                 {/* SERVICES GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {services.map((service) => (
                         <div
                             key={service.id}
