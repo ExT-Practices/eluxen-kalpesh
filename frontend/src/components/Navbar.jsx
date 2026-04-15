@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import React from 'react';
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [pagesOpen, setPagesOpen] = useState(false);
     const [blogOpen, setBlogOpen] = useState(false);
+    
+    // New state for the mobile "Pages" dropdown toggle
+    const [mobilePagesOpen, setMobilePagesOpen] = useState(false);
 
     return (
         <header className="absolute top-0 left-0 w-full z-50">
@@ -22,37 +26,37 @@ export default function Navbar() {
                         />
                     </div>
 
-                    {/* CENTER - BLURRED NAVIGATION BOX */}
+                    {/* CENTER - BLURRED NAVIGATION BOX (Desktop) */}
                     <nav className="hidden lg:flex items-center gap-6 text-white font-medium backdrop-blur-md bg-black/40 rounded-2xl px-8 py-3 border border-white/10">
-                        <NavLink 
-                            to="/" 
+                        <NavLink
+                            to="/"
                             end
-                            className={({ isActive }) => 
+                            className={({ isActive }) =>
                                 `px-5 py-2 rounded-lg transition-all duration-300 ${isActive ? 'bg-[#3b66f5]' : 'hover:text-blue-400'}`
                             }
                         >
                             Home
                         </NavLink>
 
-                        <NavLink 
-                            to="/about" 
-                            className={({ isActive }) => 
+                        <NavLink
+                            to="/about"
+                            className={({ isActive }) =>
                                 `px-5 py-2 rounded-lg transition-all duration-300 ${isActive ? 'bg-[#3b66f5]' : 'hover:text-blue-400'}`
                             }
                         >
                             About
                         </NavLink>
 
-                        <NavLink 
-                            to="/services" 
-                            className={({ isActive }) => 
+                        <NavLink
+                            to="/services"
+                            className={({ isActive }) =>
                                 `px-5 py-2 rounded-lg transition-all duration-300 ${isActive ? 'bg-[#3b66f5]' : 'hover:text-blue-400'}`
                             }
                         >
                             Services
                         </NavLink>
 
-                        {/* Pages Dropdown */}
+                        {/* Pages Dropdown (Desktop) */}
                         <div className="relative group px-2">
                             <button
                                 onClick={() => setPagesOpen(!pagesOpen)}
@@ -61,9 +65,19 @@ export default function Navbar() {
                                 Pages <span className="text-[10px]">▼</span>
                             </button>
                             {pagesOpen && (
-                                <div className="absolute top-full left-0 mt-4 w-40 bg-white text-black rounded-lg shadow-xl overflow-hidden">
-                                    <Link to="/about" className="block px-4 py-2 hover:bg-gray-100">About</Link>
-                                    <Link to="/contact" className="block px-4 py-2 hover:bg-gray-100">Contact</Link>
+                                <div className="absolute top-full left-0 mt-4 w-48 bg-white text-black rounded-lg shadow-xl overflow-hidden flex flex-col py-2">
+                                    {/* Updated to match your screenshot options */}
+                                    <Link to="/about" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">About</Link>
+                                    <Link to="/contact" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Contact</Link>
+                                    <Link to="/services" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Services</Link>
+                                    <Link to="/faq" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Faq's</Link>
+                                    <Link to="/pricing" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Pricing</Link>
+                                    <Link to="/team" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Team</Link>
+                                    <Link to="/404" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">404</Link>
+                                    <Link to="/coming-soon" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Coming Soon</Link>
+                                    <Link to="/testimonials" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Testimonial</Link>
+                                    <Link to="/privacy-policy" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Privacy Policy</Link>
+                                    <Link to="/cookie-policy" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Cookie Policy</Link>
                                 </div>
                             )}
                         </div>
@@ -72,7 +86,7 @@ export default function Navbar() {
                             Pricing
                         </a>
 
-                        {/* Blog Dropdown */}
+                        {/* Blog Dropdown (Desktop) */}
                         <div className="relative px-2">
                             <button
                                 onClick={() => setBlogOpen(!blogOpen)}
@@ -81,14 +95,14 @@ export default function Navbar() {
                                 Blog <span className="text-[10px]">▼</span>
                             </button>
                             {blogOpen && (
-                                <div className="absolute top-full left-0 mt-4 w-40 bg-white text-black rounded-lg shadow-xl overflow-hidden">
+                                <div className="absolute top-full left-0 mt-4 w-40 bg-white text-black rounded-lg shadow-xl overflow-hidden py-2">
                                     <a href="/blog" className="block px-4 py-2 hover:bg-gray-100">Blog List</a>
                                 </div>
                             )}
                         </div>
                     </nav>
 
-                    {/* RIGHT SIDE - ACTION & CONTACT (No Blur) */}
+                    {/* RIGHT SIDE - ACTION & CONTACT (Desktop) */}
                     <div className="hidden lg:flex items-center gap-5">
                         <Link
                             to="/contact"
@@ -121,7 +135,7 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    {/* MOBILE MENU TOGGLE */}
+                    {/* MOBILE MENU TOGGLE BUTTON */}
                     <button
                         className="lg:hidden text-white p-2"
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -134,44 +148,84 @@ export default function Navbar() {
 
                 {/* MOBILE MENU OVERLAY */}
                 {menuOpen && (
-                    <div className="lg:hidden mt-4 bg-black/95 backdrop-blur-xl rounded-2xl p-6 space-y-4 text-white border border-white/10">
-                        <NavLink 
-                            to="/" 
+                    <div className="lg:hidden mt-4 bg-black/95 backdrop-blur-xl rounded-2xl p-6 space-y-4 text-white border border-white/10 max-h-[80vh] overflow-y-auto">
+                        <NavLink
+                            to="/"
                             end
-                            className={({ isActive }) => 
+                            className={({ isActive }) =>
                                 `block py-2 ${isActive ? 'text-[#ffcc4d] font-bold' : ''}`
                             }
+                            onClick={() => setMenuOpen(false)}
                         >
                             Home
                         </NavLink>
-                        <NavLink 
-                            to="/about" 
-                            className={({ isActive }) => 
+                        <NavLink
+                            to="/about"
+                            className={({ isActive }) =>
                                 `block py-2 ${isActive ? 'text-[#ffcc4d] font-bold' : ''}`
                             }
+                            onClick={() => setMenuOpen(false)}
                         >
                             About
                         </NavLink>
-                        <NavLink 
-                            to="/services" 
-                            className={({ isActive }) => 
+                        <NavLink
+                            to="/services"
+                            className={({ isActive }) =>
                                 `block py-2 ${isActive ? 'text-[#ffcc4d] font-bold' : ''}`
                             }
+                            onClick={() => setMenuOpen(false)}
                         >
                             Services
                         </NavLink>
-                        <NavLink 
-                            to="/pricing" 
-                            className={({ isActive }) => 
+
+                        {/* MOBILE PAGES DROPDOWN */}
+                        <div>
+                            <button 
+                                onClick={() => setMobilePagesOpen(!mobilePagesOpen)}
+                                className="flex items-center justify-between w-full py-2 font-medium"
+                            >
+                                Pages
+                                <span className={`transform transition-transform ${mobilePagesOpen ? 'rotate-180 text-[#ffcc4d]' : ''}`}>
+                                    ▼
+                                </span>
+                            </button>
+                            
+                            {/* Expanded Mobile Pages List */}
+                            {mobilePagesOpen && (
+                                <div className="pl-4 py-2 space-y-3 text-gray-300 border-l border-white/20 ml-2 mt-1">
+                                    <Link to="/about" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>About</Link>
+                                    <Link to="/contact" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Contact</Link>
+                                    <Link to="/services" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Services</Link>
+                                    <Link to="/faq" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Faq's</Link>
+                                    <Link to="/pricing" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Pricing</Link>
+                                    <Link to="/team" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Team</Link>
+                                    <Link to="/404" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>404</Link>
+                                    <Link to="/coming-soon" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Coming Soon</Link>
+                                    <Link to="/testimonials" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Testimonial</Link>
+                                    <Link to="/privacy-policy" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Privacy Policy</Link>
+                                    <Link to="/cookie-policy" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Cookie Policy</Link>
+                                </div>
+                            )}
+                        </div>
+
+                        <NavLink
+                            to="/pricing"
+                            className={({ isActive }) =>
                                 `block py-2 ${isActive ? 'text-[#ffcc4d] font-bold' : ''}`
                             }
+                            onClick={() => setMenuOpen(false)}
                         >
                             Pricing
                         </NavLink>
+                        
                         <div className="pt-4 border-t border-white/10">
-                            <a href="/contact" className="block bg-[#ffcc4d] text-black px-4 py-3 rounded-xl text-center font-bold">
+                            <Link 
+                                to="/contact" 
+                                className="block bg-[#ffcc4d] text-black px-4 py-3 rounded-xl text-center font-bold"
+                                onClick={() => setMenuOpen(false)}
+                            >
                                 Contact Us
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 )}
