@@ -7,6 +7,7 @@ import Pricing from "../components/Pricing";
 import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
 import Contact from "../components/Contact";
+
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -16,12 +17,13 @@ export default function Home() {
             <main className="relative">
                 <Navbar />
                 <Hero />
-                <Service limit={4} />
+                <Service limit={3} />
                 <AboutUs />
                 <Pricing />
                 <Testimonials />
-                <FAQ />
+                <FAQ limit={4} />
                 <Contact />
+
                 <Footer />
             </main>
         </>
