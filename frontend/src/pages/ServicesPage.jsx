@@ -6,6 +6,7 @@ import Service from "../components/Service";
 import HowItWorks from "../components/HowItWorks";
 import CTA from "../components/CTA";
 import Contact from "../components/Contact";
+
 import Footer from "../components/Footer";
 
 export default function ServicesPage() {
@@ -18,7 +19,7 @@ export default function ServicesPage() {
                     title="Our Services"
                     description="We provide expert car detailing using top-tier products and techniques to bring out the best in your vehicle—inside and out."
                 />
-                
+
                 <Service />
                 <HowItWorks />
                 <CTA />
