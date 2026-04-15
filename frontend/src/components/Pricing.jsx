@@ -5,14 +5,14 @@ export default function Pricing() {
   const [plans, setPlans] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/pricing')
+    fetch('http://localhost:5050/api/pricing')
       .then(res => res.json())
       .then(data => setPlans(data))
       .catch(err => console.error('Error fetching pricing:', err));
   }, []);
   return (
     <section
-      className="w-full py-20 px-4 relative bg-cover bg-center bg-no-repeat"
+      className="w-full py-20 px-4 relative bg-cover bg-center bg-no-repeat animate-fade-up"
       style={{
         backgroundImage: "url('https://html.designingmedia.com/eluxen/assets/images/pricing-bg.jpg')",
         backgroundColor: "rgba(0, 0, 0, 0.8)",
