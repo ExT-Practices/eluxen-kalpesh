@@ -1,6 +1,6 @@
 export default function Hero() {
     return (
-        <section className="relative w-full h-[700px] flex items-center">
+        <section className="relative w-full h-[700px] flex items-center animate-fade-up">
 
             {/* Background Image */}
             <img
