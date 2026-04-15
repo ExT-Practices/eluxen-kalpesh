@@ -26,7 +26,7 @@ export default function Teams() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/team')
+        fetch('http://localhost:5050/api/team')
             .then(res => res.json())
             .then(data => {
                 setTeamMembers(data);
@@ -60,39 +60,40 @@ export default function Teams() {
                     {teamMembers.map((member, idx) => (
                         <div
                             key={idx}
-                            className="flex flex-col items-center text-center group"
+                            className="flex flex-col items-center text-center group bg-[#111] p-6 rounded-[32px] border border-white/5 hover:border-[#c19b66]/30 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
                         >
                             {/* Profile Image */}
-                            <figure className="mb-5 w-full overflow-hidden rounded-[24px]">
+                            <figure className="mb-6 w-full overflow-hidden rounded-[24px] relative">
                                 <img
                                     src={member.image}
                                     alt={member.name}
-                                    className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                    className="w-full h-[320px] object-cover transform transition-transform duration-700 group-hover:scale-110"
                                 />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             </figure>
 
                             {/* Text Info */}
-                            <h5 className="text-white text-[19px] font-bold mb-1">
+                            <h5 className="text-white text-[22px] font-bold mb-1 tracking-tight">
                                 {member.name}
                             </h5>
-                            <span className="text-[#9ca3af] text-[13px] mb-4 block">
+                            <span className="text-[#c19b66] text-[14px] font-medium mb-6 block uppercase tracking-wider">
                                 {member.role}
                             </span>
 
-                            {/* Social Icons */}
+                            {/* Social Icons - Premium Style */}
                             <ul className="flex justify-center gap-3">
                                 <li>
-                                    <a href={member.socials?.fb || '#'} className="w-[34px] h-[34px] bg-[#2f55d4] rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                    <a href={member.socials?.fb || '#'} className="w-[38px] h-[38px] bg-white/5 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-[#3b66f5] hover:scale-110 transition-all duration-300 border border-white/10">
                                         <SocialIcon type="fb" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href={member.socials?.ig || '#'} className="w-[34px] h-[34px] bg-[#2f55d4] rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                    <a href={member.socials?.ig || '#'} className="w-[38px] h-[38px] bg-white/5 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-[#e4405f] hover:scale-110 transition-all duration-300 border border-white/10">
                                         <SocialIcon type="ig" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href={member.socials?.li || '#'} className="w-[34px] h-[34px] bg-[#2f55d4] rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                    <a href={member.socials?.li || '#'} className="w-[38px] h-[38px] bg-white/5 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-[#0a66c2] hover:scale-110 transition-all duration-300 border border-white/10">
                                         <SocialIcon type="li" />
                                     </a>
                                 </li>
