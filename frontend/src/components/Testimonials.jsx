@@ -6,7 +6,7 @@ export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/testimonials')
+    fetch('http://localhost:5050/api/testimonials')
       .then(res => res.json())
       .then(data => setTestimonials(data))
       .catch(err => console.error('Error fetching testimonials:', err));
@@ -73,7 +73,7 @@ export default function Testimonials() {
               >
                 {testimonials.map((testimonial) => (
                   <div
-                    key={testimonial.id}
+                    key={testimonial._id}
                     className="w-full min-w-full flex flex-col sm:flex-row gap-4 sm:gap-6"
                   >
 
