@@ -2,19 +2,21 @@ import { useState, useEffect } from "react";
 import { Plus, Minus } from "lucide-react";
 import car from "../assets/car.png";
 
-export default function FAQ() {
+export default function FAQ({ limit }) {
   const [faqData, setFaqData] = useState([]);
   const [openIndex, setOpenIndex] = useState(0);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/faqs')
+    fetch('http://localhost:5050/api/faqs')
       .then(res => res.json())
       .then(data => setFaqData(data))
       .catch(err => console.error('Error fetching FAQs:', err));
   }, []);
 
+  const displayFaqs = limit ? faqData.slice(0, limit) : faqData;
+
   return (
-    <section className="w-full py-20 px-4 bg-black">
+    <section className="w-full py-20 px-4 bg-black animate-fade-up">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -43,7 +45,7 @@ export default function FAQ() {
             </div>
 
             <div className="flex flex-col gap-4">
-              {faqData.map((item, index) => {
+              {displayFaqs.map((item, index) => {
                 const isOpen = openIndex === index;
                 return (
                   <div
