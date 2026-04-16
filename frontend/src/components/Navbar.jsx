@@ -7,8 +7,9 @@ export default function Navbar() {
     const [pagesOpen, setPagesOpen] = useState(false);
     const [blogOpen, setBlogOpen] = useState(false);
     
-    // New state for the mobile "Pages" dropdown toggle
+    // New state for mobile dropdowns
     const [mobilePagesOpen, setMobilePagesOpen] = useState(false);
+    const [mobileBlogOpen, setMobileBlogOpen] = useState(false);
 
     return (
         <header className="absolute top-0 left-0 w-full z-50">
@@ -96,9 +97,11 @@ export default function Navbar() {
                             </button>
                             {blogOpen && (
                                 <div className="absolute top-full left-0 mt-4 w-40 bg-white text-black rounded-lg shadow-xl overflow-hidden py-2">
-                                    <a href="/blog" className="block px-4 py-2 hover:bg-gray-100">Blog List</a>
+                                    <Link to="/blog" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setBlogOpen(false)}>Blog List</Link>
+                                    <Link to="/blog-load-more" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setBlogOpen(false)}>Load More</Link>
                                 </div>
                             )}
+
                         </div>
                     </nav>
 
@@ -177,6 +180,26 @@ export default function Navbar() {
                         >
                             Services
                         </NavLink>
+
+                        {/* MOBILE BLOG DROPDOWN */}
+                        <div>
+                            <button 
+                                onClick={() => setMobileBlogOpen(!mobileBlogOpen)}
+                                className="flex items-center justify-between w-full py-2 font-medium"
+                            >
+                                Blog
+                                <span className={`transform transition-transform ${mobileBlogOpen ? 'rotate-180 text-[#ffcc4d]' : ''}`}>
+                                    ▼
+                                </span>
+                            </button>
+                            
+                            {mobileBlogOpen && (
+                                <div className="pl-4 py-2 space-y-3 text-gray-300 border-l border-white/20 ml-2 mt-1">
+                                    <Link to="/blog" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Blog List</Link>
+                                    <Link to="/blog-load-more" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Load More</Link>
+                                </div>
+                            )}
+                        </div>
 
                         {/* MOBILE PAGES DROPDOWN */}
                         <div>
