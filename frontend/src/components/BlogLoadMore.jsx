@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, User, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function BlogLoadMore() {
     const [blogs, setBlogs] = useState([]);
@@ -69,19 +70,21 @@ export default function BlogLoadMore() {
 
                             {/* Title & Description */}
                             <div className="px-2">
-                                <h3 className="text-white text-[22px] font-bold mb-3 group-hover:text-[#FFCD29] transition-colors leading-[1.3]">
-                                    {blog.title}
-                                </h3>
+                                <Link to={`/blog/${blog._id}`}>
+                                    <h3 className="text-white text-[22px] font-bold mb-3 group-hover:text-[#FFCD29] transition-colors leading-[1.3]">
+                                        {blog.title}
+                                    </h3>
+                                </Link>
                                 
                                 <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-2">
                                     {blog.description}
                                 </p>
 
                                 <div className="relative inline-block pb-1">
-                                    <button className="flex items-center gap-2 text-white font-bold uppercase tracking-widest text-[12px] group/btn">
+                                    <Link to={`/blog/${blog._id}`} className="flex items-center gap-2 text-white font-bold uppercase tracking-widest text-[12px] group/btn">
                                         Read More
                                         <ArrowRight size={16} className="text-[#FFCD29] transform transition-transform group-hover/btn:translate-x-1" />
-                                    </button>
+                                    </Link>
                                     <div className="absolute bottom-0 left-0 w-6 h-[2px] bg-[#FFCD29] transition-all duration-300 group-hover:w-full"></div>
                                 </div>
                             </div>
