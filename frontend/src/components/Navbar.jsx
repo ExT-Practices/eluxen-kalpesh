@@ -99,6 +99,7 @@ export default function Navbar() {
                                 <div className="absolute top-full left-0 mt-4 w-40 bg-white text-black rounded-lg shadow-xl overflow-hidden py-2">
                                     <Link to="/blog" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setBlogOpen(false)}>Blog List</Link>
                                     <Link to="/blog-load-more" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setBlogOpen(false)}>Load More</Link>
+                                    <Link to="/blog/latest" className="block px-4 py-2 hover:bg-gray-100" onClick={() => setBlogOpen(false)}>Single Blog</Link>
                                 </div>
                             )}
 
@@ -197,6 +198,7 @@ export default function Navbar() {
                                 <div className="pl-4 py-2 space-y-3 text-gray-300 border-l border-white/20 ml-2 mt-1">
                                     <Link to="/blog" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Blog List</Link>
                                     <Link to="/blog-load-more" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Load More</Link>
+                                    <Link to="/blog/latest" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>Single Blog</Link>
                                 </div>
                             )}
                         </div>
