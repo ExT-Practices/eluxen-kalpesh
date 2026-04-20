@@ -1,79 +1,67 @@
-import { CheckCircle2, ArrowUpRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export default function AboutUs() {
   return (
-    <section className="w-full py-16 px-4">
-      <div className="max-w-7xl mx-auto bg-blue-600 rounded-[40px] p-8 md:p-12 lg:p-16 relative overflow-hidden">
-        
-        {/* Car Vector Background */}
-        <img 
-          src="https://html.designingmedia.com/eluxen/assets/images/car-vector.png" 
-          alt="Car Vector" 
-          className="absolute bottom-0 right-0 w-80 md:w-[450px] lg:w-[600px] object-cover opacity-80"
-        />
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
-          
-          {/* LEFT: Image Grid */}
-          <div className="grid grid-cols-12 gap-4 h-full min-h-[400px]">
-            <div className="col-span-7 h-full">
-              <img 
-                src="https://html.designingmedia.com/eluxen/assets/images/about-us-img1.jpg" 
-                alt="Car Wash" 
-                className="w-full h-full object-cover rounded-[32px]"
-              />
+    <section className="w-full relative py-20 bg-black animate-fade-up">
+        <div className="max-w-7xl mx-auto px-4">
+            <div className="flex flex-wrap items-center">
+                {/* Left Image Section */}
+                <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-12">
+                    <figure className="relative group">
+                        <div className="absolute -inset-4 bg-blue-600/20 rounded-[40px] blur-2xl group-hover:bg-blue-600/30 transition-all duration-700"></div>
+                        <img 
+                            src="https://html.designingmedia.com/eluxen/assets/images/main-about-us-img.jpg" 
+                            alt="Car Detailing" 
+                            className="relative w-full h-auto rounded-[30px] shadow-2xl transform transition-transform duration-700 group-hover:scale-[1.02]"
+                        />
+                    </figure>
+                </div>
+                
+                {/* Right Content Section */}
+                <div className="w-full lg:w-1/2">
+                    <div className="about-content-con">
+                        <div className="heading-title-con mb-0">
+                            <span className="text-[#FFCD29] uppercase font-bold tracking-[0.2em] text-sm mb-4 inline-block">
+                                About Us
+                            </span>
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-8 leading-[1.1] text-center lg:text-left">
+                                Committed to Clarity, <br />
+                                Driven by Detail
+                            </h2>
+                            <p className="text-gray-400 text-base md:text-lg mb-10 leading-relaxed max-w-xl text-center lg:text-left mx-auto lg:mx-0">
+                                At the heart of our car detailing service is a dedication to
+                                precision and perfection. We don’t just clean cars — we restore clarity,
+                                enhance shine, and bring out the true beauty of every vehicle. From meticulous interior
+                                care to flawless exterior finishes, our team is driven by a passion for detail
+                                that ensures your car looks its absolute best, every time.
+                            </p>
+                            <ul className="space-y-6 mb-12">
+                                <li className="flex items-start gap-4 text-white group">
+                                    <div className="mt-1 bg-white/10 p-1 rounded-full group-hover:bg-[#FFCD29]/20 transition-colors">
+                                        <CheckCircle2 className="w-5 h-5 text-[#FFCD29]" />
+                                    </div>
+                                    <span className="text-lg text-gray-200">Restores shine & clarity with meticulous interior and exterior detailing.</span>
+                                </li>
+                                <li className="flex items-start gap-4 text-white group">
+                                    <div className="mt-1 bg-white/10 p-1 rounded-full group-hover:bg-[#FFCD29]/20 transition-colors">
+                                        <CheckCircle2 className="w-5 h-5 text-[#FFCD29]" />
+                                    </div>
+                                    <span className="text-lg text-gray-200">Delivers consistent, quality results through a detail-driven approach.</span>
+                                </li>
+                            </ul>
+                            <div className="flex justify-center lg:justify-start">
+                                <a href="/pricing" className="inline-flex items-center gap-6 bg-[#FFCD29] text-black pl-10 pr-3 py-3 rounded-full font-bold hover:bg-yellow-400 transition-all group scale-100 hover:scale-105 active:scale-95 shadow-xl shadow-yellow-400/10">
+                                    Read more
+                                    <div className="bg-black p-3 rounded-full group-hover:rotate-45 transition-transform duration-300">
+                                        <img src="https://html.designingmedia.com/eluxen/assets/images/up-right-arrow.png" alt="arrow" className="w-4 h-4 invert" />
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="col-span-5 flex flex-col gap-4 h-full">
-              <img 
-                src="https://html.designingmedia.com/eluxen/assets/images/about-us-img2.jpg" 
-                alt="Car Detailing" 
-                className="w-full h-1/2 flex-1 object-cover rounded-[32px]"
-              />
-              <img 
-                src="https://html.designingmedia.com/eluxen/assets/images/about-us-img3.jpg" 
-                alt="Car Polishing" 
-                className="w-full h-1/2 flex-1 object-cover rounded-[32px]"
-              />
-            </div>
-          </div>
-
-          {/* RIGHT: Content */}
-          <div className="text-white">
-            <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase">
-              About Us
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[52px] font-bold mt-3 mb-6 leading-tight">
-              Driven by Detail, <br />
-              Powered by Passion
-            </h2>
-            <p className="text-white/90 text-lg mb-8 leading-relaxed font-light">
-              We believe your vehicle deserves more than just a wash — it deserves care, precision, and attention to detail. With years of experience in professional car detailing, we specialize in bringing out the best in every vehicle.
-            </p>
-
-            <ul className="space-y-5 mb-10">
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="text-white w-6 h-6 flex-shrink-0 mt-0.5 bg-white text-blue-600 rounded-full fill-white" />
-                <span className="text-lg font-medium">Exceptional Quality with Industry-Leading Products.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="text-white w-6 h-6 flex-shrink-0 mt-0.5 bg-white text-blue-600 rounded-full fill-white" />
-                <span className="text-lg font-medium">Tailored Detailing Services for Every Vehicle & Lifestyle.</span>
-              </li>
-            </ul>
-
-            <a 
-              href="/pricing"
-              className="inline-flex items-center gap-4 bg-[#FFCD29] text-black pl-8 pr-2 py-2 rounded-[20px] font-bold hover:bg-yellow-400 transition-colors"
-            >
-              Read more
-              <span className="bg-black text-[#FFCD29] p-3 rounded-xl flex items-center justify-center">
-                <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
-              </span>
-            </a>
-          </div>
-          
         </div>
-      </div>
     </section>
   );
 }
