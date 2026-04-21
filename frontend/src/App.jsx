@@ -14,7 +14,10 @@ import CookiePolicy from "./pages/CookiePolicy";
 import BlogPage from "./pages/BlogPage";
 import BlogLoadMorePage from "./pages/BlogLoadMorePage";
 import SingleBlog from "./pages/SingleBlog";
-import AdminBlog from "./pages/AdminBlog";
+import AdminBlog from "./pages/admin/AdminBlog";
+import AdminService from "./pages/admin/AdminService";
+import AdminPricing from "./pages/admin/AdminPricing";
+import AdminFAQ from "./pages/admin/AdminFAQ";
 
 
 function App() {
@@ -34,6 +37,9 @@ function App() {
       <Route path="/blog-load-more" element={<BlogLoadMorePage />} />
       <Route path="/blog/:id" element={<SingleBlog />} />
       <Route path="/admin-blog" element={<AdminBlog />} />
+      <Route path="/admin-service" element={<AdminService />} />
+      <Route path="/admin-pricing" element={<AdminPricing />} />
+      <Route path="/admin-faq" element={<AdminFAQ />} />
 
       <Route path="*" element={<ErrorPage />} />
       <Route path="/coming-soon" element={<ComingSoon />} />
