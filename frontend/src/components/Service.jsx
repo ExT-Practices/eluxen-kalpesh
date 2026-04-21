@@ -53,7 +53,7 @@ export default function ServicesSection({ limit }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {services.map((service) => (
                         <div
-                            key={service.id}
+                            key={service._id}
                             className="group relative h-[450px] overflow-hidden rounded-3xl cursor-pointer"
                         >
                             {/* Background Image */}
