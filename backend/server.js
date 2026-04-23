@@ -8,86 +8,110 @@ const Service = require('./models/Service');
 const Pricing = require('./models/Pricing');
 const Testimonial = require('./models/Testimonial');
 const FAQ = require('./models/FAQ');
+const Team = require('./models/Team');
+const Blog = require('./models/Blog');
 
 const app = express();
 
-
-// MIDDLEWARE
 app.use(cors());
 app.use(express.json());
 
 
-// MONGODB CONNECTION
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('✅ Connected to MongoDB Successfully'))
     .catch((err) => console.error('❌ MongoDB Connection Error:', err));
 
 
-// ROUTES
+const generateCRUDRoutes = (model, modelName, path) => {
+    app.post(`/api/${path}`, async (req, res) => {
+        try {
+            const newItem = new model(req.body);
+            await newItem.save();
+            res.status(201).json({ success: true, message: `${modelName} created!`, data: newItem });
+        } catch (error) {
+            res.status(500).json({ success: false, error: error.message });
+        }
+    });
+
+    app.get(`/api/${path}`, async (req, res) => {
+        try {
+            const items = await model.find().sort({ createdAt: -1 });
+            res.json(items);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    });
+
+    app.get(`/api/${path}/:id`, async (req, res) => {
+        try {
+            const item = await model.findById(req.params.id);
+            if (!item) return res.status(404).json({ error: 'Not found' });
+            res.json(item);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    });
+
+    app.put(`/api/${path}/:id`, async (req, res) => {
+        try {
+            const updatedItem = await model.findByIdAndUpdate(req.params.id, req.body, { new: true });
+            if (!updatedItem) return res.status(404).json({ error: 'Not found' });
+            res.json({ success: true, message: `${modelName} updated!`, data: updatedItem });
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    });
+
+    app.delete(`/api/${path}/:id`, async (req, res) => {
+        try {
+            const deletedItem = await model.findByIdAndDelete(req.params.id);
+            if (!deletedItem) return res.status(404).json({ error: 'Not found' });
+            res.json({ success: true, message: `${modelName} deleted!` });
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    });
+};
+
+generateCRUDRoutes(Blog, 'Blog', 'blogs');
+generateCRUDRoutes(Service, 'Service', 'services');
+generateCRUDRoutes(Pricing, 'Pricing', 'pricing');
+generateCRUDRoutes(Testimonial, 'Testimonial', 'testimonials');
+generateCRUDRoutes(FAQ, 'FAQ', 'faqs');
+generateCRUDRoutes(Team, 'Team', 'team');
+
 app.post('/api/contact', async (req, res) => {
     try {
         const { name, email, message } = req.body;
-
-        if (!name || !email || !message) {
-            return res.status(400).json({ error: 'All fields are required' });
-        }
-
+        if (!name || !email || !message) return res.status(400).json({ error: 'All fields are required' });
         const newContact = new Contact({ name, email, message });
         await newContact.save();
-
-        res.status(201).json({ 
-            success: true, 
-            message: 'Form submitted successfully!' 
-        });
+        res.status(201).json({ success: true, message: 'Form submitted successfully!' });
     } catch (error) {
-        console.error('Error saving contact:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
-// GET SERVICES
-app.get('/api/services', async (req, res) => {
+app.get('/api/contact', async (req, res) => {
     try {
-        const services = await Service.find().sort({ id: 1 });
-        res.json(services);
+        const contacts = await Contact.find().sort({ createdAt: -1 });
+        res.json(contacts);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-// GET PRICING
-app.get('/api/pricing', async (req, res) => {
+app.delete('/api/contact/:id', async (req, res) => {
     try {
-        const pricing = await Pricing.find();
-        res.json(pricing);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
-// GET TESTIMONIALS
-app.get('/api/testimonials', async (req, res) => {
-    try {
-        const testimonials = await Testimonial.find();
-        res.json(testimonials);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
-// GET FAQS
-app.get('/api/faqs', async (req, res) => {
-    try {
-        const faqs = await FAQ.find();
-        res.json(faqs);
+        await Contact.findByIdAndDelete(req.params.id);
+        res.json({ success: true, message: 'Contact deleted!' });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
 
-// START SERVER
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
