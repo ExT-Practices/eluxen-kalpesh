@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { 
   Edit3, Trash2, Plus, X, Save, ExternalLink, 
-  User, LayoutDashboard, 
-  FileText, Settings, LogOut, Menu, ChevronRight,
-  BarChart3, Layers, Wrench, CircleDollarSign, HelpCircle,
+  ChevronRight, Menu,
   CheckCircle2, PlusCircle, MinusCircle
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import AdminSidebar from "../../components/AdminSidebar";
 
 export default function AdminPricing() {
   const [plans, setPlans] = useState([]);
@@ -135,83 +134,10 @@ export default function AdminPricing() {
   return (
     <div className="flex min-h-screen bg-[#0a0a0a] text-zinc-300 font-sans">
       
-      {/* SIDEBAR */}
-      <aside className={`fixed inset-y-0 left-0 z-50 w-72 bg-[#111111] border-r border-zinc-800/50 transition-transform duration-300 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
-        <div className="flex flex-col h-full">
-          {/* Logo Section */}
-          <div className="p-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#ffcc4d] rounded-xl flex items-center justify-center">
-                <LayoutDashboard className="text-black" size={24} />
-              </div>
-              <h2 className="text-xl font-black italic tracking-tighter text-white">ELUXEN <span className="text-[#ffcc4d]">ADMIN</span></h2>
-            </div>
-          </div>
-
-          {/* Navigation */}
-          <nav className="flex-1 px-4 space-y-2">
-            <p className="px-4 text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em] mb-4">Main Menu</p>
-            
-            <Link to="/admin-dashboard" className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-zinc-500 hover:bg-white/5 transition-all group">
-              <Layers size={20} className="group-hover:text-white transition-colors" />
-              <span className="font-bold text-sm tracking-wide">Overview</span>
-            </Link>
-
-            <Link to="/admin-service" className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-zinc-500 hover:bg-white/5 transition-all group">
-               <Wrench size={20} className="group-hover:text-white transition-colors" />
-              <span className="font-bold text-sm tracking-wide">Service Management</span>
-            </Link>
-
-            <Link to="/admin-pricing" className="flex items-center gap-4 px-4 py-3.5 rounded-2xl bg-[#ffcc4d]/10 text-[#ffcc4d] border border-[#ffcc4d]/20 transition-all shadow-lg shadow-[#ffcc4d]/5">
-              <CircleDollarSign size={20} />
-              <span className="font-bold text-sm tracking-wide">Pricing Plans</span>
-            </Link>
-
-            <Link to="/admin-faq" className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-zinc-500 hover:bg-white/5 transition-all group">
-              <HelpCircle size={20} className="group-hover:text-white transition-colors" />
-              <span className="font-bold text-sm tracking-wide">FAQ Database</span>
-            </Link>
-
-            <Link to="/admin-blog" className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-zinc-500 hover:bg-white/5 transition-all group">
-              <FileText size={20} className="group-hover:text-white transition-colors" />
-              <span className="font-bold text-sm tracking-wide">Blog Management</span>
-            </Link>
-
-            <div className="pt-8 mb-4">
-              <p className="px-4 text-[10px] font-black text-zinc-500 uppercase tracking-[0.2em]">Data</p>
-            </div>
-
-            <Link to="/admin-analytics" className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-zinc-500 hover:bg-white/5 transition-all group">
-              <BarChart3 size={20} className="group-hover:text-white transition-colors" />
-              <span className="font-bold text-sm tracking-wide">Analytics</span>
-            </Link>
-
-            <Link to="/admin-settings" className="flex items-center gap-4 px-4 py-3.5 rounded-2xl text-zinc-500 hover:bg-white/5 transition-all group">
-              <Settings size={20} className="group-hover:text-white transition-colors" />
-              <span className="font-bold text-sm tracking-wide">Settings</span>
-            </Link>
-          </nav>
-
-          {/* User Profile */}
-          <div className="p-4 mt-auto">
-            <div className="bg-zinc-900/50 border border-zinc-800 rounded-[24px] p-4 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-zinc-800 flex items-center justify-center border border-zinc-700">
-                <User size={20} className="text-zinc-400" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-white truncate">Administrator</p>
-                <p className="text-[10px] text-zinc-500 font-medium">Access: Root</p>
-              </div>
-              <button className="p-2 text-zinc-500 hover:text-red-400 transition-colors">
-                <LogOut size={18} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </aside>
+      <AdminSidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       {/* MAIN CONTENT AREA */}
-      <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'lg:pl-72' : 'pl-0'}`}>
+      <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'lg:pl-64' : 'pl-0'}`}>
         
         {/* Top Header / Mobile Nav */}
         <header className="sticky top-0 z-40 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-zinc-800/50 px-8 py-5 flex items-center justify-between">
