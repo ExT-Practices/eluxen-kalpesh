@@ -10,7 +10,7 @@ const StatCounter = ({ end, suffix, label }) => {
                 if (entries[0].isIntersecting && !hasAnimated.current) {
                     const count = countRef.current;
                     const target = parseInt(end);
-                    const duration = 2000; // ms
+                    const duration = 2000; 
                     let startTime = null;
 
                     const step = (timestamp) => {
@@ -55,7 +55,7 @@ const StatCounter = ({ end, suffix, label }) => {
 const Count = () => {
     return (
         <section className="w-full relative py-20">
-            {/* Background Accent */}
+            {}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-600/5 blur-[120px] rounded-full"></div>
 
             <div className="max-w-7xl mx-auto px-4 relative z-10">

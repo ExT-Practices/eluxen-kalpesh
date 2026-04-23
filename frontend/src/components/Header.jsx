@@ -1,11 +1,11 @@
-// components/Header.jsx
+
 
 export default function Header() {
     return (
         <header className="bg-[#262626] border-b border-white/5 py-3 relative z-[60]">
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
-                {/* Left - Logo */}
+                {}
                 <div className="flex items-center gap-1">
                     <span className="text-[#82b440] text-xl">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -15,7 +15,7 @@ export default function Header() {
                     <span className="text-white text-lg font-bold tracking-tight">envato<span className="font-normal text-white/70">market</span></span>
                 </div>
 
-                {/* Right - Actions */}
+                {}
                 <div>
                     <a
                         href="#"

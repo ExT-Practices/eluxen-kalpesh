@@ -12,7 +12,7 @@ export default function FAQGrid() {
       .catch(err => console.error('Error fetching FAQs:', err));
   }, []);
 
-  // Split data into two columns for desktop
+  
   const leftColumn = faqData.slice(0, Math.ceil(faqData.length / 2));
   const rightColumn = faqData.slice(Math.ceil(faqData.length / 2));
 
@@ -67,7 +67,7 @@ export default function FAQGrid() {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           
-          {/* LEFT COLUMN */}
+          {}
           <div className="flex flex-col gap-2">
             {leftColumn.map((item, index) => (
               <AccordionItem 
@@ -79,7 +79,7 @@ export default function FAQGrid() {
             ))}
           </div>
 
-          {/* RIGHT COLUMN */}
+          {}
           <div className="flex flex-col gap-2">
             {rightColumn.map((item, index) => (
               <AccordionItem 

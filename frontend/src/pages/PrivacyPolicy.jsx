@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
                 <section className="py-20 px-4 bg-black min-h-screen font-sans">
                     <div className="max-w-7xl mx-auto px-4 leading-[1.6] text-white">
 
-                        {/* Section 1 */}
+                        {}
                         <div className="mb-8">
                             <h4 className="text-[22px] font-bold mb-3 text-white">
                                 Duis Aute Irurein Rearederit:
@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
                             </p>
                         </div>
 
-                        {/* Section 2 */}
+                        {}
                         <div className="mb-8">
                             <h4 className="text-[22px] font-bold mb-3 text-white">
                                 Maiores Alias Sonsequatur:
@@ -80,7 +80,7 @@ export default function PrivacyPolicy() {
                             </p>
                         </div>
 
-                        {/* Section 3 */}
+                        {}
                         <div>
                             <h4 className="text-[22px] font-bold mb-3 text-white">
                                 Quisquam Ester Rui Dolorem:

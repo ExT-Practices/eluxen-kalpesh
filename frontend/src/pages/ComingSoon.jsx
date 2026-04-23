@@ -40,7 +40,7 @@ export default function ComingSoon() {
 
       <div className="max-w-4xl w-full text-center">
 
-        {/* Logo */}
+        {}
         <Link to="/" className="block mb-6">
           <img
   src="https://html.designingmedia.com/eluxen/assets/images/logo.png"
@@ -49,7 +49,7 @@ export default function ComingSoon() {
 />
         </Link>
 
-        {/* Text */}
+        {}
         <h3 className="text-sm sm:text-base md:text-lg text-gray-400 font-medium">
           Our Website is under construction
         </h3>
@@ -58,7 +58,7 @@ export default function ComingSoon() {
           Coming Soon
         </h1>
 
-        {/* Countdown */}
+        {}
         <div className="mt-8">
           <ul className="flex justify-center items-center gap-3 sm:gap-6 flex-wrap">
 
@@ -70,7 +70,7 @@ export default function ComingSoon() {
             ].map((item, i) => (
               <li key={i} className="flex flex-col items-center">
 
-                {/* Yellow Box */}
+                {}
                 <div className="bg-gradient-to-br from-yellow-300 to-yellow-500 text-black px-4 sm:px-6 py-3 sm:py-4 rounded-lg shadow-[0_0_20px_rgba(255,204,77,0.4)] min-w-[70px] sm:min-w-[80px] text-center hover:scale-105 transition">
 
                   <span className="text-xl sm:text-3xl font-bold">
@@ -79,7 +79,7 @@ export default function ComingSoon() {
 
                 </div>
 
-                {/* Label */}
+                {}
                 <span className="mt-2 text-xs sm:text-sm text-gray-400">
                   {item.label}
                 </span>
@@ -90,7 +90,7 @@ export default function ComingSoon() {
           </ul>
         </div>
 
-        {/* Back Button */}
+        {}
         <Link
           to="/"
           className="mt-8 inline-block bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition"

@@ -5,7 +5,7 @@ export default function AboutUs() {
     <section className="w-full relative py-20 bg-black animate-fade-up">
         <div className="max-w-7xl mx-auto px-4">
             <div className="flex flex-wrap items-center">
-                {/* Left Image Section */}
+                {}
                 <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-12">
                     <figure className="relative group">
                         <div className="absolute -inset-4 bg-blue-600/20 rounded-[40px] blur-2xl group-hover:bg-blue-600/30 transition-all duration-700"></div>
@@ -17,7 +17,7 @@ export default function AboutUs() {
                     </figure>
                 </div>
                 
-                {/* Right Content Section */}
+                {}
                 <div className="w-full lg:w-1/2">
                     <div className="about-content-con">
                         <div className="heading-title-con mb-0">

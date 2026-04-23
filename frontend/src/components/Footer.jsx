@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
 
-                    {/* LOGO & ABOUT */}
+                    {}
                     <div className="flex flex-col gap-6">
                         <Link to="/" className="inline-block">
                             <img
@@ -62,7 +62,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* NAVIGATION LINKS */}
+                    {}
                     <div>
                         <h4 className="text-xl font-bold mb-8 relative inline-block">
                             Navigation
@@ -83,7 +83,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* CONTACT INFO */}
+                    {}
                     <div>
                         <h4 className="text-xl font-bold mb-8 relative inline-block">
                             Contact Info
@@ -122,7 +122,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* NEWSLETTER */}
+                    {}
                     <div>
                         <h4 className="text-xl font-bold mb-8 relative inline-block">
                             Newsletter Signup
@@ -158,7 +158,7 @@ const Footer = () => {
 
                 </div>
 
-                {/* COPYRIGHT */}
+                {}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
                     <p>Copyright © 2025 Eluxen. All Rights Reserved.</p>
                     <div className="flex gap-6">

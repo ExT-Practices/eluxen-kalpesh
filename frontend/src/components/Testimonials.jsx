@@ -30,10 +30,10 @@ export default function Testimonials() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* LEFT */}
+          {}
           <div>
 
-            {/* Heading + Arrows */}
+            {}
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-6">
 
               <div>
@@ -47,7 +47,7 @@ export default function Testimonials() {
                 </h2>
               </div>
 
-              {/* Arrows */}
+              {}
               <div className="flex gap-3">
                 <button
                   onClick={handlePrev}
@@ -65,7 +65,7 @@ export default function Testimonials() {
               </div>
             </div>
 
-            {/* Slider */}
+            {}
             <div className="relative overflow-hidden w-full">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
@@ -77,14 +77,14 @@ export default function Testimonials() {
                     className="w-full min-w-full flex flex-col sm:flex-row gap-4 sm:gap-6"
                   >
 
-                    {/* Quote Icon */}
+                    {}
                     <div className="flex-shrink-0">
                       <div className="w-10 h-10 sm:w-14 sm:h-14 bg-blue-600 rounded-full flex items-center justify-center">
                         <Quote className="w-4 h-4 sm:w-6 sm:h-6 text-white fill-white" />
                       </div>
                     </div>
 
-                    {/* Content */}
+                    {}
                     <div className="w-full">
                       <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed mb-5 sm:mb-6">
                         &ldquo;{testimonial.quote}&rdquo;
@@ -124,7 +124,7 @@ export default function Testimonials() {
 
           </div>
 
-          {/* RIGHT IMAGE */}
+          {}
           <div className="w-full">
             <img
               src="https://html.designingmedia.com/eluxen/assets/images/testimonials-img.jpg"

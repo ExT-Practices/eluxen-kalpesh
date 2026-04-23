@@ -42,12 +42,12 @@ export default function Contact() {
     <section className="w-full py-12 sm:py-16 lg:py-20 px-4 sm:px-6 animate-fade-up">
   <div className="max-w-7xl mx-auto bg-blue-600 rounded-3xl sm:rounded-[40px] lg:rounded-[50px] p-6 sm:p-10 md:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
 
-    {/* Background Accent */}
+    {}
     <div className="absolute top-0 right-0 w-40 sm:w-64 h-40 sm:h-64 bg-white/5 rounded-full blur-3xl -mr-20 sm:-mr-32 -mt-20 sm:-mt-32"></div>
 
     <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center relative z-10">
 
-      {/* LEFT */}
+      {}
       <div className="text-white animate-fade-left">
         <div className="mb-8 sm:mb-10 text-center lg:text-left">
           <span className="text-yellow-400 font-bold tracking-widest text-xs sm:text-sm uppercase mb-2 block">
@@ -131,7 +131,7 @@ export default function Contact() {
         </form>
       </div>
 
-      {/* RIGHT IMAGE */}
+      {}
       <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-full overflow-hidden rounded-2xl sm:rounded-3xl lg:rounded-[40px] shadow-2xl animate-fade-right">
         <img
           src="https://html.designingmedia.com/eluxen/assets/images/send-us-img.jpg"

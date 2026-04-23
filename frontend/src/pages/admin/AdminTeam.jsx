@@ -13,7 +13,16 @@ export default function AdminTeam() {
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
   const [status, setStatus] = useState({ loading: false, msg: "", type: "" });
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1024) setIsSidebarOpen(false);
+      else setIsSidebarOpen(true);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const initialFormState = {
     name: "",
@@ -28,7 +37,7 @@ export default function AdminTeam() {
 
   const [formData, setFormData] = useState(initialFormState);
 
-  // FETCH TEAM MEMBERS
+  
   const fetchMembers = async () => {
     setLoading(true);
     try {
@@ -59,7 +68,7 @@ export default function AdminTeam() {
     }
   };
 
-  // HANDLE CREATE OR UPDATE
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus({ loading: true, msg: isEditing ? "Updating..." : "Adding...", type: "info" });
@@ -92,7 +101,7 @@ export default function AdminTeam() {
     }
   };
 
-  // HANDLE EDIT CLICK
+  
   const handleEdit = (member) => {
     setIsEditing(true);
     setEditId(member._id);
@@ -105,7 +114,7 @@ export default function AdminTeam() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // HANDLE DELETE
+  
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this team member?")) return;
 
@@ -130,14 +139,14 @@ export default function AdminTeam() {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#0a0a0a] text-zinc-300 font-sans">
+    <div className="flex min-h-screen bg-[#0a0a0a] text-zinc-300 font-sans overflow-x-hidden">
       <AdminSidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
-      {/* MAIN CONTENT AREA */}
+      {}
       <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'lg:pl-64' : 'pl-0'}`}>
         
-        {/* Top Header / Mobile Nav */}
-        <header className="sticky top-0 z-40 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-zinc-800/50 px-8 py-5 flex items-center justify-between">
+        {}
+        <header className="sticky top-0 z-40 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-zinc-800/50 px-4 md:px-8 py-5 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="lg:hidden p-2 bg-zinc-900 rounded-xl">
               <Menu size={20} />
@@ -161,21 +170,21 @@ export default function AdminTeam() {
           </div>
         </header>
 
-        <div className="p-8 lg:p-12 max-w-7xl mx-auto">
+        <div className="p-4 md:p-8 lg:p-12 max-w-7xl mx-auto">
           
-          {/* Header Section */}
-          <div className="mb-12">
-            <h1 className="text-4xl lg:text-5xl font-black italic tracking-tighter mb-2 text-white">
+          {}
+          <div className="mb-8 md:mb-12">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black italic tracking-tighter mb-2 text-white uppercase">
               TEAM <span className="text-[#ffcc4d]">CREW</span>
             </h1>
             <p className="text-zinc-500 font-medium tracking-wide">Manage your professional team and their social presence.</p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-12">
+          <div className="grid lg:grid-cols-12 gap-8 md:gap-12">
 
-            {/* FORM COLUMN */}
+            {}
             <div className="lg:col-span-5">
-              <div className={`bg-[#111111] border border-zinc-800/50 rounded-[32px] p-8 shadow-2xl transition-all duration-500 sticky top-32 ${isEditing ? 'ring-2 ring-[#ffcc4d]/30 shadow-[#ffcc4d]/5' : ''}`}>
+              <div className={`bg-[#111111] border border-zinc-800/50 rounded-[24px] md:rounded-[32px] p-6 md:p-8 shadow-2xl transition-all duration-500 lg:sticky lg:top-32 ${isEditing ? 'ring-2 ring-[#ffcc4d]/30 shadow-[#ffcc4d]/5' : ''}`}>
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-xl font-bold italic text-white flex items-center gap-3">
                     {isEditing ? <Edit3 size={20} className="text-[#ffcc4d]" /> : <Plus size={20} className="text-[#ffcc4d]" />}
@@ -302,7 +311,7 @@ export default function AdminTeam() {
               </div>
             </div>
 
-            {/* LIST COLUMN */}
+            {}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold italic text-white flex items-center gap-3 tracking-wide">
@@ -321,7 +330,7 @@ export default function AdminTeam() {
                   <p className="text-zinc-500 italic">No team members found. Start recruiting!</p>
                 </div>
               ) : (
-                <div className="grid lg:grid-cols-2 gap-6">
+                <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                   {members.map((member) => (
                     <div key={member._id} className="group bg-[#111111] border border-zinc-800/50 hover:border-zinc-700 rounded-[32px] overflow-hidden transition-all duration-500 hover:translate-y-[-4px]">
                       <div className="aspect-[4/5] relative overflow-hidden">
@@ -332,13 +341,13 @@ export default function AdminTeam() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                         
-                        {/* Identity */}
+                        {}
                         <div className="absolute bottom-6 left-6 right-6">
                           <p className="text-[10px] font-black text-[#ffcc4d] uppercase tracking-[0.2em] mb-1">{member.role}</p>
                           <h4 className="text-xl font-bold text-white italic tracking-tight">{member.name}</h4>
                         </div>
 
-                        {/* Quick Actions */}
+                        {}
                         <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0">
                           <button
                             onClick={() => handleEdit(member)}

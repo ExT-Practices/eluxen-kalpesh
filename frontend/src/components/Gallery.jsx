@@ -34,7 +34,7 @@ export default function Gallery() {
   return (
     <section className="w-full py-20 px-4 relative text-center">
       <div className="max-w-7xl mx-auto">
-        {/* Heading */}
+        {}
         <div className="mb-16">
           <span className="text-[#FFCD29] font-semibold tracking-wider text-sm uppercase inline-block mb-4 animate-fade-in">
             Gallery
@@ -45,13 +45,10 @@ export default function Gallery() {
           </h2>
         </div>
 
-        {/* FIXED GALLERY GRID:
-          Flattened into a single CSS Grid. No nested grid wrappers.
-          md:auto-rows-[260px] ensures consistent heights across the desktop view.
-        */}
+        {}
         <div className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-[260px] gap-6">
           
-          {/* Left Large Image */}
+          {}
           <div 
             className="md:col-span-1 md:row-span-2 group cursor-pointer overflow-hidden rounded-2xl relative h-[300px] md:h-full"
             onClick={() => setSelectedImage(galleryImages[0])}
@@ -70,7 +67,7 @@ export default function Gallery() {
             </div>
           </div>
 
-          {/* Top Right Image */}
+          {}
           <div 
             className="md:col-span-2 md:row-span-1 group cursor-pointer overflow-hidden rounded-2xl relative h-[200px] md:h-full"
             onClick={() => setSelectedImage(galleryImages[1])}
@@ -89,7 +86,7 @@ export default function Gallery() {
             </div>
           </div>
 
-          {/* Bottom Middle Image */}
+          {}
           <div 
             className="md:col-span-1 md:row-span-1 group cursor-pointer overflow-hidden rounded-2xl relative h-[200px] md:h-full"
             onClick={() => setSelectedImage(galleryImages[2])}
@@ -108,7 +105,7 @@ export default function Gallery() {
             </div>
           </div>
 
-          {/* Bottom Right Image */}
+          {}
           <div 
             className="md:col-span-1 md:row-span-1 group cursor-pointer overflow-hidden rounded-2xl relative h-[200px] md:h-full"
             onClick={() => setSelectedImage(galleryImages[3])}
@@ -130,7 +127,7 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Lightbox Modal (Unchanged) */}
+      {}
       {selectedImage && (
         <div 
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"

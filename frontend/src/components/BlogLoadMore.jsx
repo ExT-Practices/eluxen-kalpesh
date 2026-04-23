@@ -38,7 +38,7 @@ export default function BlogLoadMore() {
         <section className="w-full py-20 bg-black relative overflow-hidden font-sans">
             <div className="max-w-7xl mx-auto px-4 relative z-10">
                 
-                {/* Blog Grid */}
+                {}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mb-16">
                     {visibleBlogs.map((blog, idx) => (
                         <article 
@@ -46,7 +46,7 @@ export default function BlogLoadMore() {
                             className="flex flex-col group animate-fade-up"
                             style={{ animationDelay: `${idx * 0.1}s` }}
                         >
-                            {/* Image Wrapper */}
+                            {}
                             <div className="relative overflow-hidden rounded-[30px] mb-6 aspect-[16/10]">
                                 <img 
                                     src={blog.image} 
@@ -56,7 +56,7 @@ export default function BlogLoadMore() {
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500"></div>
                             </div>
 
-                            {/* Meta Info */}
+                            {}
                             <div className="flex items-center gap-4 mb-3 px-2 text-gray-400 text-xs font-semibold tracking-wider">
                                 <div className="flex items-center gap-2">
                                     <Calendar size={14} className="text-[#FFCD29]" />
@@ -68,7 +68,7 @@ export default function BlogLoadMore() {
                                 </div>
                             </div>
 
-                            {/* Title & Description */}
+                            {}
                             <div className="px-2">
                                 <Link to={`/blog/${blog._id}`}>
                                     <h3 className="text-white text-[22px] font-bold mb-3 group-hover:text-[#FFCD29] transition-colors leading-[1.3]">
@@ -92,7 +92,7 @@ export default function BlogLoadMore() {
                     ))}
                 </div>
 
-                {/* Load More Button */}
+                {}
                 {visibleCount < blogs.length && (
                     <div className="flex justify-center mt-8">
                         <button 
@@ -104,7 +104,7 @@ export default function BlogLoadMore() {
                     </div>
                 )}
 
-                {/* Empty State */}
+                {}
                 {blogs.length === 0 && (
                     <div className="text-center py-20">
                         <p className="text-gray-500 text-xl italic">No blogs found.</p>

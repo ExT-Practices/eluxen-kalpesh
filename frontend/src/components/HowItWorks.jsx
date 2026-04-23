@@ -35,7 +35,7 @@ const steps = [
 export default function HowItWorks() {
     return (
         <section className="py-24 px-6 bg-black text-white relative overflow-hidden">
-            {/* Blue Glow/Vignette Effect */}
+            {}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-blue-900/20 blur-[120px] rounded-full -translate-y-1/2" />
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-blue-900/20 blur-[120px] rounded-full translate-y-1/2" />
 
@@ -50,7 +50,7 @@ export default function HowItWorks() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
-                    {/* Dashed Connection Line (Visible on LG screens) */}
+                    {}
                     <div className="hidden lg:block absolute top-[60px] left-[10%] right-[10%] border-t-2 border-dashed border-white/20 -z-0" />
 
                     {steps.map((step, index) => (

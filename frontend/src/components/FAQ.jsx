@@ -20,7 +20,7 @@ export default function FAQ({ limit }) {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-          {/* LEFT: Image */}
+          {}
           <div className="relative overflow-hidden rounded-[40px]">
             <img
               src={car}
@@ -29,11 +29,11 @@ export default function FAQ({ limit }) {
                 openIndex !== -1 ? 'scale-110' : 'scale-100'
               }`}
             />
-            {/* Dark Gradient Overlay */}
+            {}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
           </div>
 
-          {/* RIGHT: Content */}
+          {}
           <div className="flex flex-col gap-8">
             <div>
               <span className="text-[#FFCD29] font-semibold tracking-wider text-sm uppercase">

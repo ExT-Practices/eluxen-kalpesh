@@ -83,7 +83,7 @@ export default function SingleBlog() {
                     <div className="max-w-7xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
-                            {/* Main Content */}
+                            {}
                             <div className="lg:col-span-8 space-y-8 md:space-y-12">
                                 <div className="bg-[#111111] rounded-3xl md:rounded-[40px] border border-white/5 overflow-hidden">
                                     <figure className="relative aspect-video lg:aspect-[16/9] overflow-hidden">
@@ -112,14 +112,14 @@ export default function SingleBlog() {
                                             <p>Professional detailing involves a deep cleaning process that goes far beyond what a standard car wash provides.</p>
                                         </div>
 
-                                        {/* Quote Section */}
+                                        {}
                                         <div className="my-8 md:my-12 relative bg-white/5 p-6 md:p-10 rounded-3xl border-l-4 border-[#FFCD29]">
                                             <p className="text-white text-lg md:text-2xl italic font-medium relative z-10">
                                                 “Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.”
                                             </p>
                                         </div>
 
-                                        {/* Tags & Social Share */}
+                                        {}
                                         <div className="flex flex-col md:flex-row justify-between gap-8 py-10 border-y border-white/10">
                                             <div className="w-full">
                                                 <h4 className="text-white text-xl font-bold mb-6">Related Tags</h4>
@@ -143,7 +143,7 @@ export default function SingleBlog() {
                                             </div>
                                         </div>
 
-                                        {/* Prev/Next Buttons */}
+                                        {}
                                         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 py-10">
                                             <Link to="/blog" className="w-full sm:w-auto flex justify-center items-center gap-3 bg-white/5 text-white px-8 py-3 rounded-full font-bold hover:bg-[#FFCD29] hover:text-black transition-all">
                                                 <ArrowLeft size={20} /> Prev
@@ -156,9 +156,9 @@ export default function SingleBlog() {
                                 </div>
                             </div>
 
-                            {/* Sidebar */}
+                            {}
                             <aside className="lg:col-span-4 space-y-8 md:space-y-12">
-                                {/* Search Box */}
+                                {}
                                 <div className="bg-[#111111] p-6 md:p-8 rounded-3xl border border-white/5">
                                     <h5 className="text-white text-xl font-bold mb-6 border-l-4 border-[#FFCD29] pl-4">Search News</h5>
                                     <div className="relative">
@@ -173,7 +173,7 @@ export default function SingleBlog() {
                                     </div>
                                 </div>
 
-                                {/* Popular Category */}
+                                {}
                                 <div className="bg-[#111111] p-6 md:p-8 rounded-3xl border border-white/5">
                                     <h5 className="text-white text-xl font-bold mb-6 border-l-4 border-[#FFCD29] pl-4">Categories</h5>
                                     <ul className="space-y-4">
@@ -187,7 +187,7 @@ export default function SingleBlog() {
                                     </ul>
                                 </div>
 
-                                {/* Feeds */}
+                                {}
                                 <div className="bg-[#111111] p-6 md:p-8 rounded-3xl border border-white/5">
                                     <h5 className="text-white text-xl font-bold mb-6 border-l-4 border-[#FFCD29] pl-4">Recent Feeds</h5>
                                     <div className="space-y-6">

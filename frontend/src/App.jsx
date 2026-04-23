@@ -18,6 +18,10 @@ import AdminBlog from "./pages/admin/AdminBlog";
 import AdminService from "./pages/admin/AdminService";
 import AdminPricing from "./pages/admin/AdminPricing";
 import AdminFAQ from "./pages/admin/AdminFAQ";
+import AdminContact from "./pages/admin/AdminContact";
+import AdminTestimonial from "./pages/admin/AdminTestimonial";
+import AdminTeam from "./pages/admin/AdminTeam";
+
 
 
 function App() {
@@ -40,6 +44,10 @@ function App() {
       <Route path="/admin-service" element={<AdminService />} />
       <Route path="/admin-pricing" element={<AdminPricing />} />
       <Route path="/admin-faq" element={<AdminFAQ />} />
+      <Route path="/admin-contact" element={<AdminContact />} />
+      <Route path="/admin-testimonial" element={<AdminTestimonial />} />
+      <Route path="/admin-team" element={<AdminTeam />} />
+
 
       <Route path="*" element={<ErrorPage />} />
       <Route path="/coming-soon" element={<ComingSoon />} />

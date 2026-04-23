@@ -7,7 +7,7 @@ export default function Navbar() {
     const [pagesOpen, setPagesOpen] = useState(false);
     const [blogOpen, setBlogOpen] = useState(false);
     
-    // New state for mobile dropdowns
+    
     const [mobilePagesOpen, setMobilePagesOpen] = useState(false);
     const [mobileBlogOpen, setMobileBlogOpen] = useState(false);
 
@@ -15,10 +15,10 @@ export default function Navbar() {
         <header className="absolute top-0 left-0 w-full z-50">
             <div className="max-w-7xl mx-auto px-4 mt-6">
 
-                {/* OUTER FLEX CONTAINER (Transparent) */}
+                {}
                 <div className="flex items-center justify-between">
 
-                    {/* LEFT - LOGO */}
+                    {}
                     <div className="flex-shrink-0">
                         <img
                             src="https://html.designingmedia.com/eluxen/assets/images/logo.png"
@@ -27,7 +27,7 @@ export default function Navbar() {
                         />
                     </div>
 
-                    {/* CENTER - BLURRED NAVIGATION BOX (Desktop) */}
+                    {}
                     <nav className="hidden lg:flex items-center gap-6 text-white font-medium backdrop-blur-md bg-black/40 rounded-2xl px-8 py-3 border border-white/10">
                         <NavLink
                             to="/"
@@ -57,7 +57,7 @@ export default function Navbar() {
                             Services
                         </NavLink>
 
-                        {/* Pages Dropdown (Desktop) */}
+                        {}
                         <div className="relative group px-2">
                             <button
                                 onClick={() => setPagesOpen(!pagesOpen)}
@@ -67,7 +67,7 @@ export default function Navbar() {
                             </button>
                             {pagesOpen && (
                                 <div className="absolute top-full left-0 mt-4 w-48 bg-white text-black rounded-lg shadow-xl overflow-hidden flex flex-col py-2">
-                                    {/* Updated to match your screenshot options */}
+                                    {}
                                     <Link to="/about" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">About</Link>
                                     <Link to="/contact" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Contact</Link>
                                     <Link to="/services" className="px-4 py-2 hover:bg-yellow-100 hover:text-yellow-600">Services</Link>
@@ -87,7 +87,7 @@ export default function Navbar() {
                             Pricing
                         </a>
 
-                        {/* Blog Dropdown (Desktop) */}
+                        {}
                         <div className="relative px-2">
                             <button
                                 onClick={() => setBlogOpen(!blogOpen)}
@@ -106,7 +106,7 @@ export default function Navbar() {
                         </div>
                     </nav>
 
-                    {/* RIGHT SIDE - ACTION & CONTACT (Desktop) */}
+                    {}
                     <div className="hidden lg:flex items-center gap-5">
                         <Link
                             to="/contact"
@@ -127,7 +127,7 @@ export default function Navbar() {
                             </span>
                         </Link>
 
-                        {/* PHONE SECTION */}
+                        {}
                         <div className="flex items-center gap-3 text-white pl-2">
                             <div className="text-[#ffcc4d]">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -139,7 +139,7 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    {/* MOBILE MENU TOGGLE BUTTON */}
+                    {}
                     <button
                         className="lg:hidden text-white p-2"
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -150,7 +150,7 @@ export default function Navbar() {
                     </button>
                 </div>
 
-                {/* MOBILE MENU OVERLAY */}
+                {}
                 {menuOpen && (
                     <div className="lg:hidden mt-4 bg-black/95 backdrop-blur-xl rounded-2xl p-6 space-y-4 text-white border border-white/10 max-h-[80vh] overflow-y-auto">
                         <NavLink
@@ -182,7 +182,7 @@ export default function Navbar() {
                             Services
                         </NavLink>
 
-                        {/* MOBILE BLOG DROPDOWN */}
+                        {}
                         <div>
                             <button 
                                 onClick={() => setMobileBlogOpen(!mobileBlogOpen)}
@@ -203,7 +203,7 @@ export default function Navbar() {
                             )}
                         </div>
 
-                        {/* MOBILE PAGES DROPDOWN */}
+                        {}
                         <div>
                             <button 
                                 onClick={() => setMobilePagesOpen(!mobilePagesOpen)}
@@ -215,7 +215,7 @@ export default function Navbar() {
                                 </span>
                             </button>
                             
-                            {/* Expanded Mobile Pages List */}
+                            {}
                             {mobilePagesOpen && (
                                 <div className="pl-4 py-2 space-y-3 text-gray-300 border-l border-white/20 ml-2 mt-1">
                                     <Link to="/about" className="block hover:text-[#ffcc4d]" onClick={() => setMenuOpen(false)}>About</Link>
